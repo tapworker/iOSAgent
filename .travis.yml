@@ -1,2 +1,4 @@
+os: osx
+osx_image: xcode11.3
 language: swift
 script: bash run-swiftpm-tests.sh
