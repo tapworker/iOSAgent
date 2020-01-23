@@ -1,4 +1,18 @@
 os: osx
 osx_image: xcode11.3
 language: swift
-script: bash run-swiftpm-tests.sh
+
+jobs:
+  include:
+    - stage: Unit Tests iOS 11
+      script: ./run-swiftpm-tests.sh 11 unit
+    - stage: Unit Tests iOS 12
+      script: ./run-swiftpm-tests.sh 12 unit
+    - stage: Unit Tests iOS 13
+      script: ./run-swiftpm-tests.sh 13 unit
+    - stage: Integration Tests iOS 11
+      script: ./run-swiftpm-tests.sh 11 integration)
+    - stage: Integration Tests iOS 12
+      script: ./run-swiftpm-tests.sh 12 integration)
+    - stage: Integration Tests iOS 13
+      script: ./run-swiftpm-tests.sh 13 integration)
