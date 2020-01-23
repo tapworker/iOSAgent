@@ -5,14 +5,19 @@ language: swift
 jobs:
   include:
     - stage: Unit Tests iOS 11
-      script: ./run-swiftpm-tests.sh 11 unit
+      script: ./run-swiftpm-tests.sh --ios=11 --test=unit
+
     - stage: Unit Tests iOS 12
-      script: ./run-swiftpm-tests.sh 12 unit
+      script: ./run-swiftpm-tests.sh --ios=12 --test=unit
+
     - stage: Unit Tests iOS 13
-      script: ./run-swiftpm-tests.sh 13 unit
+      script: ./run-swiftpm-tests.sh --ios=13 --test=unit
+
     - stage: Integration Tests iOS 11
-      script: ./run-swiftpm-tests.sh 11 integration)
+      script: ./run-swiftpm-tests.sh --ios=11 --test=integration
+
     - stage: Integration Tests iOS 12
-      script: ./run-swiftpm-tests.sh 12 integration)
+      script: ./run-swiftpm-tests.sh --ios=12 --test=integration
+
     - stage: Integration Tests iOS 13
-      script: ./run-swiftpm-tests.sh 13 integration)
+      script: ./run-swiftpm-tests.sh --ios=13 --test=integration
