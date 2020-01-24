@@ -36,9 +36,12 @@ class HTTPMarkerTests: InstanaTestCase {
         marker.set(responseSize: responseSize)
 
         // Then
-        XCTAssertEqual(marker.responseSize?.headerBytes, 512)
+
         XCTAssertEqual(marker.responseSize?.bodyBytes, 1024)
-        XCTAssertEqual(marker.responseSize?.bodyBytesAfterDecoding, 2000)
+        if #available(iOS 13.0, *) {
+            XCTAssertEqual(marker.responseSize?.headerBytes, 512)
+            XCTAssertEqual(marker.responseSize?.bodyBytesAfterDecoding, 2000)
+        }
     }
 
     func test_set_HTTP_Sizes_for_task() {
