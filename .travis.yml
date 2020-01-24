@@ -8,3 +8,7 @@ jobs:
       script: ./run-swiftpm-tests.sh --ios=13 --test=unit
     - stage: Integration Tests iOS 13
       script: ./run-swiftpm-tests.sh --ios=13 --test=integration
+    - stage: Unit Tests iOS 12
+      script: ./run-swiftpm-tests.sh --ios=12 --test=unit
+    - stage: Integration Tests iOS 12
+      script: ./run-swiftpm-tests.sh --ios=12 --test=integration
