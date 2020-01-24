@@ -1,6 +1,8 @@
 os: osx
 osx_image: xcode11.3
 language: swift
+git:
+  depth: 1
 
 jobs:
   include:
@@ -12,3 +14,8 @@ jobs:
       script: ./run-swiftpm-tests.sh --ios=12 --test=unit
     - stage: Integration Tests iOS 12
       script: ./run-swiftpm-tests.sh --ios=12 --test=integration
+
+after_failure:
+ - cat -n ~/Library/Logs/scan/*
+ - cat -n $TMPDIR/com.apple.dt.XCTest-status/Session*.log
+ - cat -n ~/Library/Logs/DiagnosticReports/xctest*.crash
