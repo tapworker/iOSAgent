@@ -913,7 +913,7 @@ class ReporterTests: InstanaTestCase {
 
         // When
         reporter?.submit(HTTPBeacon.createMock())
-        wait(for: [waitForCompletion], timeout: 2.0)
+        wait(for: [waitForCompletion], timeout: 5.0)
         reporter = nil
 
         // Then
