@@ -1,1 +1,1 @@
-cd ../Sources/InstanaAgent && ../../scripts/temp/swiftlint lint
+cd Sources/InstanaAgent && ../../scripts/temp/swiftlint lint
