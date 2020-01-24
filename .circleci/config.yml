@@ -8,10 +8,12 @@ jobs:
 
     steps:
       - checkout
-      - run: ./run-swiftpm-tests.sh --ios=13 --test=unit
-      - run: ./run-swiftpm-tests.sh --ios=13 --test=integration
-      - run: ./run-swiftpm-tests.sh --ios=12 --test=unit
-      - run: ./run-swiftpm-tests.sh --ios=12 --test=integration
+      - run: scripts/install_swiftlint.sh
+      - run: scripts/lint.sh
+      - run: scripts/run-swiftpm-tests.sh --ios=13 --test=unit
+      - run: scripts/run-swiftpm-tests.sh --ios=13 --test=integration
+      - run: scripts/run-swiftpm-tests.sh --ios=12 --test=unit
+      - run: scripts/run-swiftpm-tests.sh --ios=12 --test=integration
       # UnitTest with iOS 11
       #- run: ./run-swiftpm-tests.sh --ios=11 --test=unit
 

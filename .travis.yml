@@ -6,14 +6,17 @@ git:
 
 jobs:
   include:
+    - name: Run Validations (SwiftLint)
+      install: scripts/install_swiftlint.sh
+      script: scripts/lint.sh
     - stage: Unit Tests iOS 13
-      script: ./run-swiftpm-tests.sh --ios=13 --test=unit
+      script: scripts/run-swiftpm-tests.sh --ios=13 --test=unit
     - stage: Integration Tests iOS 13
-      script: ./run-swiftpm-tests.sh --ios=13 --test=integration
+      script: scripts/run-swiftpm-tests.sh --ios=13 --test=integration
     - stage: Unit Tests iOS 12
-      script: ./run-swiftpm-tests.sh --ios=12 --test=unit
+      script: scripts/run-swiftpm-tests.sh --ios=12 --test=unit
     - stage: Integration Tests iOS 12
-      script: ./run-swiftpm-tests.sh --ios=12 --test=integration
+      script: scripts/run-swiftpm-tests.sh --ios=12 --test=integration
 
 after_failure:
  - cat -n ~/Library/Logs/scan/*
